@@ -14,6 +14,18 @@ class Ball
     vel.mult(3);
     c = color(random(255), random(50), random(100, 255));
   }
+  
+  Ball(int tDiam)
+  {
+    this();
+    diam = tDiam;
+  }
+  
+  Ball(float tX, float tY)
+  {
+    this();
+    loc = new PVector(tX, tY);
+  }
 
 //after declaring fields and setting up constructors, you can define your methods
   void display()
@@ -37,6 +49,26 @@ class Ball
     if(loc.y + diam / 2 > height || loc.y - diam / 2 < 0)
     {
       vel.y *= -1;
+    }
+  }
+  
+  void wrap()
+  {
+    if(loc.x > width)
+    {
+      loc.x = 0;
+    }
+    if(loc.x < 0)
+    {
+      loc.x = width;
+    }
+    if(loc.y > height)
+    {
+      loc.y = 0;
+    }
+    if(loc.y < 0)
+    {
+      loc.y = width;
     }
   }
 }
