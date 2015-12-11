@@ -15,4 +15,6 @@ void draw()
   b2.display();
   b.move();
   b2.move();
+  b.bounce();
+  b2.bounce();
 }
